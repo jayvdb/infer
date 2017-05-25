@@ -17,6 +17,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then opam update; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then opam install -y depext; fi
 install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then opam pin add -y --no-action atdgen 1.10.2; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then opam pin add -y --no-action infer .; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then opam depext infer; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then opam install -y infer; fi
